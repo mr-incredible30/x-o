@@ -1,6 +1,3 @@
-from pickle import TRUE
-from re import X
-
 
 class tile:
     icon = str
