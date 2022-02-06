@@ -1,7 +1,4 @@
-class tile:
-    icon = str
-    def __init__(self, skin):
-        self.icon = skin
+import os
 
 class board:
     board = [str]*9
@@ -17,15 +14,24 @@ class board:
                     break
                 elif self.board[(3*i)] == "O":
                     check = 2
-                    break
-                
+                    break  
             if self.board[i] == self.board[i+3] and self.board[i+3] == self.board[i+6]:
                 if self.board[(3*i)] == "X":
                     check = 1
                     break
-                elif self.board[(3*i)] == "X":
+                elif self.board[(3*i)] == "O":
                     check = 2
                     break
+        if self.board[0] == self.board[4] and self.board[4] == self.board[8]:
+            if self.board[0] == "X":
+                check = 1
+            elif self.board[0] == "O":
+                check = 2
+        if self.board[2] == self.board[4] and self.board[4] == self.board[6]:
+            if self.board[2] == "X":
+                check = 1
+            elif self.board[2] == "O":
+                check = 2
         return check
 
 
@@ -49,10 +55,15 @@ p2 = Player(2, "O")
 count = 0
 myboard = board("_")
 winner = 0
+p = '0'
+while int(p) < 1 and int(p) > 9:
+    p = input("GIVE pos")
 while winner == 0:
+    os.system('clear')
     for i in range(0,9,3):
         print(myboard.board[i+0],myboard.board[i+1],myboard.board[i+2])
-    p = input("GIVE POS")
+    while int(p) < 1 and int(p) > 9:
+        p = input("GIVE pos")
     if int(p) == 0:
         break
     else:
@@ -65,9 +76,9 @@ while winner == 0:
                 p = input("GIVE pos")
             myboard = p2.place(int(p)-1, myboard)
     winner = myboard.check_board()
-    
     count += 1
-    
+
+os.system('clear')
 for i in range(0,9,3):
     print(myboard.board[i+0],myboard.board[i+1],myboard.board[i+2])
 print("Player {} WON".format(winner))
