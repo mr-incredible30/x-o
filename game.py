@@ -56,16 +56,20 @@ count = 0
 myboard = board("_")
 winner = 0
 p = '0'
-while int(p) < 1 and int(p) > 9:
+os.system('clear')
+for i in range(0,9,3):
+    print(myboard.board[i+0],myboard.board[i+1],myboard.board[i+2])
+while int(p) < 1 or int(p) > 9:
     p = input("GIVE pos")
 while winner == 0:
     os.system('clear')
     for i in range(0,9,3):
         print(myboard.board[i+0],myboard.board[i+1],myboard.board[i+2])
-    while int(p) < 1 and int(p) > 9:
+    while int(p) < 1 or int(p) > 9:
         p = input("GIVE pos")
     if int(p) == 0:
-        break
+        pass
+        # break
     else:
         if count % 2 == 0: #Μπαίνει ανά 2 επαναλήψεις, άρα αποθηκεύει ανα δύο θέσεις αν τα δίνεις στη σειρά
             while myboard.board[int(p)-1] != "_":
