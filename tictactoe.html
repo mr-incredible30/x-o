@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>gay</title>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+<body>
+    <table style="left: calc(50vw - 84px); position: absolute;">
+        <tbody id="nigger">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const size = 3;
+        let c = document.getElementById("nigger").children;
+        let turn = 0;
+
+        function buttonPressed(row, col) {
+            console.log(`Button on row ${row} and col ${col} pressed`);
+            setPlayed(row, col);
+        }
+
+        function setPlayed(row, col) {
+            c[row].children[col].children[0].setAttribute("disabled", "");
+            c[row].children[col].children[0].innerHTML = turn % 2 == 0 ? "X" : "O";
+            /*
+            if (turn % 2 == 0) vale X
+            else vale O
+            */
+            turn++;
+        }
+
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                let el = document.createElement("button");
+                el.innerHTML = "?";
+                el.onclick = function (e) {
+                    buttonPressed(i, j);
+                }
+                c[i].children[j].appendChild(el);
+            }
+        }
+    </script>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6db63108df846f5f',m:'xBLmrpfkWy32tS852idvdnt8EBxlURONFWr35agRBQM-1644505064-0-ATbAASLLJGUB5Nlp+Inz3fdFwPD1c73p6BEKzsK5KJCfZHy3C9ndm31ffEWmgCvAsck2D4iKLkwCmk60/1ORc2UXMUz81/HT7kJ0KLe4KVuIbynhIb6I0uZ5wLtGkkLdIKEDsCaWEHFwGVR2jSOlRgDlCzCrLWjVGFQcRGlNjE5weu5deNPdMrLSzj8286VeoEDI+nHFkJ41la4NqJzbE/U=',s:[0x8e49a3939a,0x2c76e70693],}})();</script></body>
+
+</html>
