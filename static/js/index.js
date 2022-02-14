@@ -1,11 +1,13 @@
 const size = 3;
+win = "0";
+let mes = true;
 let score = [0,0];
 let c = document.getElementById("nigger").children;
 let m = document.getElementById("win_mes");
 let s = document.getElementById("sc");
 
-var game_id;
-var player_id;
+var game_id = 0;
+var player_id = 0;
 
 async function createGame() {
     let response = await fetch('/new_game');
@@ -66,8 +68,22 @@ async function update_board(){
         }
     }    
 }
+async function check_win(){
+    if (game_id != 0){
+        let responce = await fetch(`/check?game_id=${game_id}`);
+        win = await responce.json();
+        console.log('gay', win);
+    }
+}
 set_game();
 
 setInterval(function() {
     update_board();
+    check_win();
+    if(win > 0 && mes){
+        let el = document.createElement("h1");
+        el.innerHTML = `Player ${win} WON!!`;
+        m.appendChild(el);
+        mes = false;
+    }
 }, 1000);
