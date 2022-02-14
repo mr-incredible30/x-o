@@ -30,7 +30,14 @@
             </tr>
         </tbody>
     </table>
-    <div style="position: absolute;"><button id=reset>Reset</button></div>
+    <h1 id="game_id"></h1>
+    <div id="gameButtons">
+        <div><button onclick="createGame()">New Game</button></div>
+        <div>
+            <input id="game_id_field" placeholder="Game ID">
+            <button onclick="joinGame()">Join Game</button>
+        </div>
+    </div>
     <div id="win_mes"></div>
     <script src="/static/js/index.js"></script>
 </html>
